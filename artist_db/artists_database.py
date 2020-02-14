@@ -20,4 +20,9 @@ class SQLiteArtistsDB():
         except sqlite3.IntegrityError:
             raise DuplicateArtistError(f'Error inserting: Duplicate artist will not be added. Name: {name}') # Duplicate artist
 
-    
+    def search(self, name):
+        with sqlite3.connect(db) as con:
+            artists_cursor = con.execute('select * from artists where name like ?', (name))
+            artist = artists_cursor.fetchall()
+        con.close()
+        return artist
