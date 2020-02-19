@@ -22,7 +22,7 @@ class SQLiteArtistsDB():
 
     def search(self, name):
         with sqlite3.connect(db) as con:
-            artists_cursor = con.execute('select * from artists where name like ?', (name))
+            artists_cursor = con.execute('select * from artists where name like ?', name)
             artist = artists_cursor.fetchall()
         con.close()
         return artist
