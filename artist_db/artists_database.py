@@ -10,7 +10,7 @@ class SQLiteArtistsDB():
     def __init__(self):
         with sqlite3.connect(db) as con:
             con.execute('create table if not exists artists (name TEXT UNIQUE NOT NULL, email TEXT)')
-    
+
     def insert(self, name, email):
         try:
             with sqlite3.connect(db) as con:

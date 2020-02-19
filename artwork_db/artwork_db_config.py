@@ -1,3 +1,3 @@
 # Artwork Database configuration settings
 
-db_path = 'artwork.db'
+db_path = 'all_artwork.db'
